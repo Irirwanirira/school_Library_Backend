@@ -33,7 +33,7 @@ export const loginUser = async (req, res) => {
 export const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
   try {
-    const oldUser = await findUserByEmail(email);
+    const oldUser = await findUserByEmail(email.toLowerCase());
     if (oldUser) {
       return res
         .status(409)
@@ -62,6 +62,15 @@ export const registerUser = async (req, res) => {
       token: generatedToken,
       user: response,
     });
+  } catch (error) {
+    return res.status(500).send({ message: error.message });
+  }
+};
+
+export const logoutUser = async (req, res) => {
+  try {
+    res.clearCookie('token');
+    res.redirect('/');
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }
