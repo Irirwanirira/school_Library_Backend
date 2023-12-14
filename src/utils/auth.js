@@ -1,13 +1,14 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const dotenv = require("dotenv");
-dotenv.config();
+// const dotenv = require("dotenv");
+// dotenv.config();
 
 export const generateToken = (user) => {
     const token = jwt.sign(
         {
             id: user.id,
             email: user.email,
+            // role: user.role.name
         },
         process.env.JWT_SECRET,
         {

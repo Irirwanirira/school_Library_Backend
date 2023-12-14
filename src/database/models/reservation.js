@@ -11,14 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Reservation.belongsTo(models.User, {
-        foreignKey: "user_id",
-        as: "users",
-      });
-      Reservation.belongsTo(models.Book, {
-        foreignKey: "book_id",
-        as: "books",
-      });
+      // Reservation.belongsTo(models.User, {
+      //   foreignKey: "user_id",
+      //   as: "users",
+      // });
+      // Reservation.belongsTo(models.Book, {
+      //   foreignKey: "book_id",
+      //   as: "books",
+      // });
     }
   }
   Reservation.init({

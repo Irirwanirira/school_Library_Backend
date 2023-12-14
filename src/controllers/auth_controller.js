@@ -8,7 +8,7 @@ const {User} = require("../database/models")
 
 const bcrypt = require('bcryptjs');
 
-const { findUserByEmail, createUser, getAllUsers, findUserById } = require('../service/auth.service');
+const { findUserByEmail, createUser, getAllUsers, findUserById } = require('../service/auth/auth.service');
 const { hashPassword, generateToken } = require('../utils/auth');
 
 export const registerUser = async (req, res) => {
@@ -149,7 +149,6 @@ export const userAddBook = async (req, res) => {
 //     console.log(error);
 //     return res.status(500).json({ message: 'Internal server error' });
 //   }
-  
 // }
 
 export const userGetBook = async (req, res) =>{
